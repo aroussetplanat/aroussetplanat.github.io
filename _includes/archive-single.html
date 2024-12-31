@@ -23,14 +23,12 @@
     {% endif %}
 
     {% if post.abstract %}
-      <a href="#" onclick="toggleAbstract('{{ post.slug }}'); return false;" class="abstract-button" aria-expanded="false">
+      <a href="#" onclick="toggleAbstract('{{ post.slug }}'); return false;" class="abstract-button">
         <span class="arrow">▶</span> Abstract
       </a>
       <div id="abstract-{{ post.slug }}" style="display:none;">
         {{ post.abstract }}
       </div>
     {% endif %}
-
-
   </article>
 </div>
