@@ -59,13 +59,13 @@
 <script>
 function toggleAbstract(slug) {
   var abstractDiv = document.getElementById('abstract-' + slug);
-  var button = document.querySelector('a[onclick="toggleAbstract(\'' + slug + '\'); return false;"]');
+  var button = document.querySelector('a[onclick="toggleAbstract(\'' + slug + '\'); return false;"] .arrow');
   if (abstractDiv.style.display === 'none') {
     abstractDiv.style.display = 'block';
-    button.setAttribute('aria-expanded', 'true');
+    button.style.transform = 'rotate(90deg)';
   } else {
     abstractDiv.style.display = 'none';
-    button.setAttribute('aria-expanded', 'false');
+    button.style.transform = 'rotate(0deg)';
   }
 }
 </script>
