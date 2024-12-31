@@ -1,0 +1,54 @@
+.archive__item a.abstract-button {
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer;
+  color: rgb(201, 26, 26) !important; /* Force the color to black */
+  text-decoration: none !important; /* Force the removal of underline */
+}
+
+.archive__item a.abstract-button .arrow {
+  display: inline-block;
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+
+.archive__item a.abstract-button[aria-expanded="true"] .arrow {
+  transform: rotate(90deg); /* Rotate 45 degrees */
+}
+
+h2.publication-category-title {
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.2em; /* Reduce the bottom margin */
+  color: #000000 !important; /* Change the color as needed and add !important */
+  text-decoration: underline !important; /* Add underline and !important */
+}
+
+.archive__item-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.archive__item {
+  margin-top: 0.1em; /* Reduce the top margin */
+}
+
+.archive__item p {
+  margin: 0.5em 0;
+}
+
+.coauthors {
+  font-style: italic;
+  color: #555; /* Adjust the color as needed */
+}
+
+/* Add this section to change the color of hyperlinked paper titles */
+.archive__item-title a {
+  color: #007acc; /* Change to your desired color */
+  text-decoration: none; /* Remove underline */
+}
+
+.archive__item-title a:hover {
+  color: #005f99; /* Change to your desired hover color */
+  text-decoration: underline; /* Add underline on hover */
+}
