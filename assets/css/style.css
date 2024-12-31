@@ -2,7 +2,7 @@
   display: inline-block;
   margin-top: 10px;
   cursor: pointer;
-  color: rgb(201, 26, 26) !important; /* Force the color to black */
+  color: rgb(201, 26, 26) !important; /* Force the color to red */
   text-decoration: none !important; /* Force the removal of underline */
 }
 
@@ -13,14 +13,14 @@
 }
 
 .archive__item a.abstract-button[aria-expanded="true"] .arrow {
-  transform: rotate(90deg); /* Rotate 45 degrees */
+  transform: rotate(90deg); /* Rotate 90 degrees */
 }
 
 h2.publication-category-title {
   font-size: 1.5em;
   margin-top: 1em;
   margin-bottom: 0.2em; /* Reduce the bottom margin */
-  color: #000000 !important; /* Change the color as needed and add !important */
+  color: rgb(201, 26, 26) !important; /* Change the color to red */
   text-decoration: underline !important; /* Add underline and !important */
 }
 
@@ -44,11 +44,11 @@ h2.publication-category-title {
 
 /* Add this section to change the color of hyperlinked paper titles */
 .archive__item-title a {
-  color: #007acc; /* Change to your desired color */
+  color: rgb(201, 26, 26); /* Change to red */
   text-decoration: none; /* Remove underline */
 }
 
 .archive__item-title a:hover {
-  color: #005f99; /* Change to your desired hover color */
+  color: rgb(150, 20, 20); /* Change to a darker red on hover */
   text-decoration: underline; /* Add underline on hover */
 }
