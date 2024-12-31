@@ -19,7 +19,7 @@
     {% endif %}
 
     {% if post.venue %}
-      <p><strong>Revise and Resubmit</strong> <u>{{ post.venue }}</u></p>
+      <p>{{ post.venue }}</p>
     {% endif %}
 
     {% if post.abstract %}
@@ -31,42 +31,6 @@
       </div>
     {% endif %}
 
-    {% if post.excerpt and site.read_more != 'enabled' %}
-      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
-    {% elsif post.excerpt and site.read_more == 'enabled' %}
-      <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
-    {% endif %}
-    
-    {% if post.citation and post.paperurl and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation and post.paperurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
-    {% elsif post.citation and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation %}
-      <p>Recommended citation: {{ post.citation }}</p>
-    {% elsif post.paperurl %}
-      <p><a href=" {{ post.paperurl }} ">Download Paper</a></p>
-    {% elsif post.slidesurl %}
-      <p><a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% endif %}
 
   </article>
 </div>
-
-<script>
-function toggleAbstract(slug) {
-  var abstractDiv = document.getElementById('abstract-' + slug);
-  var button = document.querySelector('a[onclick="toggleAbstract(\'' + slug + '\'); return false;"]');
-  var arrow = button.querySelector('.arrow');
-  if (abstractDiv.style.display === 'none') {
-    abstractDiv.style.display = 'block';
-    button.setAttribute('aria-expanded', 'true');
-    arrow.style.transform = 'rotate(90deg)';
-  } else {
-    abstractDiv.style.display = 'none';
-    button.setAttribute('aria-expanded', 'false');
-    arrow.style.transform = 'rotate(0deg)';
-  }
-}
-</script>
