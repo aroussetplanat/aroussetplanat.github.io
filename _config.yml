@@ -12,7 +12,7 @@ title                    : "Adrien Rousset Planat"
 title_separator          : "-"
 name                     : &name "Adrien Rousset Planat"
 description              : &description "personal description"
-url                      : https://aroussetplanat.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
+url                      : https://adrienroussetplanat.com # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "aroussetplanat/aroussetplanat.github.io"
 
