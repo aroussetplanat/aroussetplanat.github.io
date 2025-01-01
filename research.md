@@ -19,7 +19,6 @@ author_profile: true
   {% endfor %}
 {% endfor %}
 
-
 <script>
 function toggleAbstract(slug) {
   var abstractDiv = document.getElementById('abstract-' + slug);
