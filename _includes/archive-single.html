@@ -54,6 +54,12 @@
   <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}">
 {% endif %}
 
+    {% assign post.graph = "/images/foo-bar-identity.jpg" %}
+{% if post.graph %}
+  <p>Graph field exists: {{ post.graph }}</p>
+{% endif %}
+    
+    <pre>{{ post | jsonify }}</pre>
     
   </article>
 </div>
