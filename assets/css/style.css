@@ -1,16 +1,70 @@
+/* Responsive Site Container */
+.site-container {
+  max-width: 1200px; /* Set a maximum width for larger screens */
+  width: 95%; /* Ensure it uses most of the screen width */
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 0 20px; /* Add padding on the sides */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Abstract Button Styling */
+.archive__item a.abstract-button {
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer;
+  color: rgb(201, 26, 26) !important; /* Force the color */
+  text-decoration: none !important; /* Remove underline */
+}
+
+.archive__item a.abstract-button .arrow {
+  display: inline-block;
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+
+.archive__item a.abstract-button[aria-expanded="true"] .arrow {
+  transform: rotate(90deg); /* Rotate 90 degrees when expanded */
+}
+
+/* Publication Category Title Styling */
+h2.publication-category-title {
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+  color: #000000 !important; /* Ensure black color */
+  text-decoration: underline !important; /* Add underline */
+}
+
+/* Paper Title Styling */
+.archive__item-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.archive__item-title a {
+  color: #007acc; /* Hyperlinked paper title color */
+  text-decoration: none; /* Remove underline */
+}
+
+.archive__item-title a:hover {
+  color: #005f99; /* Hover color */
+  text-decoration: underline; /* Add underline on hover */
+}
+
 /* Archive Item Layout */
 .archive__item {
   display: flex;
-  flex-direction: row; /* Align items horizontally */
-  align-items: flex-start; /* Align the graph and title to the top */
-  justify-content: space-between; /* Use available space proportionally */
+  flex-direction: row; /* Align text and graph horizontally */
+  align-items: flex-start; /* Align text and graph to the top */
+  justify-content: space-between; /* Distribute space proportionally */
   gap: 20px; /* Space between text and graph */
   margin-top: 0.5em; /* Small margin for spacing */
+  width: 100%; /* Ensure the item takes full container width */
 }
 
 /* Publication Details */
 .publication-details {
-  flex: 1; /* Allow the text section to take up all available space */
+  flex: 3; /* Allocate 75% of the space to text */
   min-width: 0; /* Prevent text from shrinking unexpectedly */
 }
 
@@ -30,59 +84,21 @@
 
 /* Graph Container */
 .publication-graph {
-  flex-shrink: 0; /* Prevent the graph container from shrinking */
-  align-self: flex-start; /* Align the graph to the top of the content */
-  max-width: 200px; /* Limit the width of the graph container */
+  flex: 1; /* Allocate 25% of the space to the graph */
+  max-width: 300px; /* Restrict the graph size */
+  text-align: right; /* Align the graph to the right */
 }
 
+/* Graph Image */
 .publication-graph-img {
-  width: 400px; /* Set the exact width of the image */
-  height: 200px; /* Set the exact height of the image */
+  max-width: 100%; /* Ensure the graph fits within its container */
+  height: auto; /* Maintain the aspect ratio */
   border: 1px solid #ddd; /* Optional border */
   padding: 5px; /* Add some padding */
   border-radius: 5px; /* Rounded corners */
 }
 
-/* Abstract Button Styling */
-.archive__item a.abstract-button {
-  display: inline-block;
-  margin-top: 10px;
-  cursor: pointer;
-  color: rgb(201, 26, 26) !important;
-  text-decoration: none !important;
-}
-
-.archive__item a.abstract-button .arrow {
-  display: inline-block;
-  margin-right: 5px;
-  transition: transform 0.3s ease;
-}
-
-.archive__item a.abstract-button[aria-expanded="true"] .arrow {
-  transform: rotate(90deg);
-}
-
-/* Paper Title Styling */
-.archive__item-title {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-.archive__item-title a {
-  color: #007acc;
-  text-decoration: none;
-}
-
-.archive__item-title a:hover {
-  color: #005f99;
-  text-decoration: underline;
-}
-
-/* Site Container Styling */
-.site-container {
-  max-width: 1200px; /* Maximum width for larger screens */
-  width: 95%; /* Use most of the screen width on smaller devices */
-  margin: 0 auto; /* Center the content horizontally */
-  padding: 0 20px; /* Add padding on the left and right for spacing */
-  box-sizing: border-box; /* Include padding in the width calculation */
+/* General Spacing for Paragraphs */
+.archive__item p {
+  margin: 0.5em 0;
 }
