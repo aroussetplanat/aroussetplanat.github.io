@@ -5,10 +5,10 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork" style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork" style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 20px;">
 
     <!-- Left Section: Publication Details -->
-    <div class="publication-details" style="flex: 1;">
+    <div class="publication-details">
       <h2 class="archive__item-title" itemprop="headline">
         {% if post.latest_draft %}
           <a href="{{ base_path }}/files/pdf/research/{{ post.latest_draft }}" target="_blank">{{ title }}</a>
@@ -37,7 +37,7 @@
 
     <!-- Right Section: Graph -->
     {% if post.graph %}
-    <div class="publication-graph" style="align-self: flex-start;">
+    <div class="publication-graph">
       <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" class="publication-graph-img">
     </div>
     {% endif %}
