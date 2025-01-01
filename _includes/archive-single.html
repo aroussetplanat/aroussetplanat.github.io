@@ -5,10 +5,10 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork" style="display: flex; align-items: flex-start; gap: 20px;">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork" style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
 
     <!-- Left Section: Publication Details -->
-    <div class="publication-details">
+    <div class="publication-details" style="flex: 2; min-width: 60%;">
       <h2 class="archive__item-title" itemprop="headline">
         {% if post.latest_draft %}
           <a href="{{ base_path }}/files/pdf/research/{{ post.latest_draft }}" target="_blank">{{ title }}</a>
@@ -21,9 +21,9 @@
         <p class="coauthors"><strong>Co-authors:</strong> {{ post.coauthors }}</p>
       {% endif %}
 
-     {% if post.venue %}
-      <p class="venue">{{ post.venue | markdownify }}</p>
-    {% endif %}
+      {% if post.venue %}
+        <p class="venue"><strong>Venue:</strong> {{ post.venue | markdownify }}</p>
+      {% endif %}
 
       {% if post.abstract %}
         <a href="#" onclick="toggleAbstract('{{ post.slug }}'); return false;" class="abstract-button" aria-expanded="false">
@@ -35,12 +35,12 @@
       {% endif %}
     </div>
 
-      <!-- Right Section: Graph -->
-    {% if post.graph %}
-    <div class="publication-graph">
-      <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" class="publication-graph-img">
+    <!-- Right Section: Graph -->
+    <div class="publication-graph" style="flex: 1; text-align: right;">
+      {% if post.graph %}
+        <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" class="publication-graph-img">
+      {% endif %}
     </div>
-    {% endif %}
 
   </article>
 </div>
