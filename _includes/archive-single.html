@@ -41,5 +41,19 @@
         <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" style="max-width: 150px; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
       </div>
     {% endif %}
+
+  <!-- Debugging Graph Field -->
+{% if post.graph %}
+  <p>Graph field exists: {{ post.graph }}</p>
+{% else %}
+  <p>No graph field for this post.</p>
+{% endif %}
+
+<!-- Existing Graph Rendering -->
+{% if post.graph %}
+  <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}">
+{% endif %}
+
+    
   </article>
 </div>
