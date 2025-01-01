@@ -1,9 +1,10 @@
+/* Abstract Button Styling */
 .archive__item a.abstract-button {
   display: inline-block;
   margin-top: 10px;
   cursor: pointer;
-  color: rgb(201, 26, 26) !important; /* Force the color to black */
-  text-decoration: none !important; /* Force the removal of underline */
+  color: rgb(201, 26, 26) !important; /* Force the color */
+  text-decoration: none !important; /* Remove underline */
 }
 
 .archive__item a.abstract-button .arrow {
@@ -13,59 +14,61 @@
 }
 
 .archive__item a.abstract-button[aria-expanded="true"] .arrow {
-  transform: rotate(90deg); /* Rotate 45 degrees */
+  transform: rotate(90deg); /* Rotate 90 degrees when expanded */
 }
 
+/* Publication Category Title Styling */
 h2.publication-category-title {
   font-size: 1.5em;
   margin-top: 1em;
-  margin-bottom: 0.2em; /* Reduce the bottom margin */
-  color: #000000 !important; /* Change the color as needed and add !important */
-  text-decoration: underline !important; /* Add underline and !important */
+  margin-bottom: 0.2em;
+  color: #000000 !important; /* Ensure black color */
+  text-decoration: underline !important; /* Add underline */
 }
 
+/* Paper Title Styling */
 .archive__item-title {
   font-size: 1.2em;
   font-weight: bold;
 }
 
+.archive__item-title a {
+  color: #007acc; /* Hyperlinked paper title color */
+  text-decoration: none; /* Remove underline */
+}
+
+.archive__item-title a:hover {
+  color: #005f99; /* Hover color */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Archive Item Spacing */
 .archive__item {
-  margin-top: 0.1em; /* Reduce the top margin */
+  margin-top: 0.1em; /* Reduce top margin */
+  display: grid; /* Use grid for alignment */
+  grid-template-columns: 1fr auto; /* Two columns: details and graph */
+  align-items: center; /* Align content vertically */
+  gap: 20px; /* Spacing between columns */
 }
 
 .archive__item p {
   margin: 0.5em 0;
 }
 
+/* Co-authors Styling */
 .coauthors {
   font-style: italic;
-  color: #555; /* Adjust the color as needed */
+  color: #555; /* Adjust the color */
 }
 
-/* Add this section to change the color of hyperlinked paper titles */
-.archive__item-title a {
-  color: #007acc; /* Change to your desired color */
-  text-decoration: none; /* Remove underline */
-}
-
-.archive__item-title a:hover {
-  color: #005f99; /* Change to your desired hover color */
-  text-decoration: underline; /* Add underline on hover */
-}
-
-.archive__item {
-  display: flex;
-  flex-direction: row;
-  align-items: center; /* Vertically aligns details and graph */
-  gap: 20px; /* Spacing between details and graph */
-}
-
+/* Graph Styling */
 .publication-graph {
-  flex-shrink: 0; /* Prevents graph from resizing */
+  flex-shrink: 0; /* Prevent graph resizing */
+  justify-self: end; /* Align graph to the right */
 }
 
 .publication-graph-img {
-  max-width: 400px; /* Adjust as needed */
+  max-width: 400px; /* Adjust graph size */
   height: auto;
   border: 1px solid #ddd;
   padding: 5px;
