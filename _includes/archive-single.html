@@ -5,30 +5,45 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    <h2 class="archive__item-title" itemprop="headline">
-      {% if post.latest_draft %}
-        <a href="{{ base_path }}/files/pdf/research/{{ post.latest_draft }}" target="_blank">{{ title }}</a>
-      {% else %}
-        {{ title }}
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork" style="display: flex; align-items: flex-start; gap: 20px;">
+
+    <!-- Left Section: Publication Details -->
+    <div class="publication-details">
+      <h2 class="archive__item-title" itemprop="headline">
+        {% if post.latest_draft %}
+          <a href="{{ base_path }}/files/pdf/research/{{ post.latest_draft }}" target="_blank">{{ title }}</a>
+        {% else %}
+          {{ title }}
+        {% endif %}
+      </h2>
+
+      {% if post.coauthors %}
+        <p class="coauthors">Co-authors: {{ post.coauthors }}</p>
       {% endif %}
-    </h2>
-    
-    {% if post.coauthors %}
-      <p class="coauthors">Co-authors: {{ post.coauthors }}</p>
-    {% endif %}
 
-    {% if post.venue %}
-      <p class="venue">{{ post.venue | markdownify }}</p>
-    {% endif %}
+      {% if post.venue %}
+        <p class="venue">{{ post.venue | markdownify }}</p>
+      {% endif %}
 
-    {% if post.abstract %}
-      <a href="#" onclick="toggleAbstract('{{ post.slug }}'); return false;" class="abstract-button" aria-expanded="false">
-        <span class="arrow">▶</span> Abstract
-      </a>
-      <div id="abstract-{{ post.slug }}" style="display:none;">
-        {{ post.abstract }}
-      </div>
-    {% endif %}
+      {% if post.abstract %}
+        <a href="#" onclick="toggleAbstract('{{ post.slug }}'); return false;" class="abstract-button" aria-expanded="false">
+          <span class="arrow">▶</span> Abstract
+        </a>
+        <div id="abstract-{{ post.slug }}" style="display:none;">
+          {{ post.abstract }}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Right Section: Graph -->
+    <div class="publication-graph">
+      {% if post.graph %}
+        <p>Graph field exists: {{ post.graph }}</p>
+        <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" style="max-width: 150px; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+      {% else %}
+        <p>No graph field for this post.</p>
+      {% endif %}
+    </div>
+
   </article>
 </div>
