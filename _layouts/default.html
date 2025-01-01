@@ -17,7 +17,10 @@ layout: compress
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
-    {{ content }}
+    <!-- Add a container to wrap the content -->
+    <div class="site-container">
+      {{ content }}
+    </div>
 
     <div class="page__footer">
       <footer>
