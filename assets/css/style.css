@@ -35,10 +35,9 @@
   max-width: 200px; /* Limit the width of the graph container */
 }
 
-/* Graph Image */
 .publication-graph-img {
-  max-width: 100%; /* Ensure the graph fits within its container */
-  height: auto; /* Maintain the aspect ratio */
+  width: 400px; /* Set the exact width of the image */
+  height: 200px; /* Set the exact height of the image */
   border: 1px solid #ddd; /* Optional border */
   padding: 5px; /* Add some padding */
   border-radius: 5px; /* Rounded corners */
