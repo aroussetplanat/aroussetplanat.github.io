@@ -45,15 +45,17 @@ h2.publication-category-title {
 /* Archive Item Layout */
 .archive__item {
   display: flex;
-  flex-direction: row; /* Horizontal alignment */
-  align-items: flex-start; /* Aligns content at the top */
+  flex-direction: row; /* Align text and graph horizontally */
+  align-items: flex-start; /* Align graph and text to the top */
+  justify-content: space-between; /* Distribute available space */
   gap: 20px; /* Space between text and graph */
   margin-top: 0.5em;
 }
 
 /* Publication Details */
 .publication-details {
-  flex: 1; /* Allow text section to take up available space */
+  flex: 1; /* Text takes available space */
+  max-width: 70%; /* Prevent excessive stretching */
 }
 
 /* Co-authors Styling */
@@ -73,18 +75,12 @@ h2.publication-category-title {
 /* Graph Styling */
 .publication-graph {
   flex-shrink: 0; /* Prevent the graph from resizing */
-  align-self: flex-start; /* Align the graph with the top of the content */
 }
 
 .publication-graph-img {
-  max-width: 250px; /* Adjust graph size */
-  height: auto;
+  max-width: 250px; /* Restrict graph width */
+  height: auto; /* Maintain aspect ratio */
   border: 1px solid #ddd;
   padding: 5px;
   border-radius: 5px;
-}
-
-/* General Spacing for Paragraphs */
-.archive__item p {
-  margin: 0.5em 0;
 }
