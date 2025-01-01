@@ -36,11 +36,14 @@
     </div>
 
     <!-- Right Section: Graph -->
-    {% if post.graph %}
-      <div class="publication-graph">
+    <div class="publication-graph">
+      {% if post.graph %}
+        <p>Graph exists: {{ post.graph }}</p>
         <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" style="max-width: 150px; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
-      </div>
-    {% endif %}
+      {% else %}
+        <p>No graph for this post.</p>
+      {% endif %}
+    </div>
 
   </article>
 </div>
