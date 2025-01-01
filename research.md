@@ -4,25 +4,22 @@ permalink: /research/
 author_profile: true
 ---
 
-<!-- Google Scholar Link -->
 {% if author.googlescholar %}
-  <p>You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u></p>
+  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}
 
-<!-- Include Base Path -->
 {% include base_path %}
 
-<!-- Display Publications by Category -->
 {% for category in site.publication_category %}
   <h2 class="publication-category-title">{{ category[1].title }}</h2>
   {% assign category_key = category[0] %}
-  {% assign posts_in_category = site.research | where: "category", category_key %}
+  {% assign posts_in_category = site.publications | where: "category", category_key %}
   {% for post in posts_in_category reversed %}
-    {% include archive-single.html post=post %}
+    {% include archive-single.html %}
   {% endfor %}
 {% endfor %}
 
-<!-- JavaScript for Abstract Toggle -->
+
 <script>
 function toggleAbstract(slug) {
   var abstractDiv = document.getElementById('abstract-' + slug);
