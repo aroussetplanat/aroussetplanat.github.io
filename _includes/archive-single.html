@@ -21,9 +21,9 @@
         <p class="coauthors"><strong>Co-authors:</strong> {{ post.coauthors }}</p>
       {% endif %}
 
-      {% if post.venue %}
-        <p class="venue"><strong>Venue:</strong> {{ post.venue | markdownify }}</p>
-      {% endif %}
+     {% if post.venue %}
+      <p class="venue">{{ post.venue | markdownify }}</p>
+    {% endif %}
 
       {% if post.abstract %}
         <a href="#" onclick="toggleAbstract('{{ post.slug }}'); return false;" class="abstract-button" aria-expanded="false">
