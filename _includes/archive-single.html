@@ -5,7 +5,7 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork" style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork" style="display: flex; align-items: flex-start; gap: 20px;">
 
     <!-- Left Section: Publication Details -->
     <div class="publication-details" style="flex: 1;">
@@ -37,7 +37,7 @@
 
     <!-- Right Section: Graph -->
     {% if post.graph %}
-    <div class="publication-graph" style="display: flex; align-items: flex-start;">
+    <div class="publication-graph" style="align-self: flex-start;">
       <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" class="publication-graph-img">
     </div>
     {% endif %}
