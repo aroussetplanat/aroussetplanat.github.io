@@ -18,11 +18,11 @@
       </h2>
 
       {% if post.coauthors %}
-        <p class="coauthors">Co-authors: {{ post.coauthors }}</p>
+        <p class="coauthors"><strong>Co-authors:</strong> {{ post.coauthors }}</p>
       {% endif %}
 
       {% if post.venue %}
-        <p class="venue">{{ post.venue | markdownify }}</p>
+        <p class="venue"><strong>Venue:</strong> {{ post.venue | markdownify }}</p>
       {% endif %}
 
       {% if post.abstract %}
@@ -38,10 +38,7 @@
     <!-- Right Section: Graph -->
     <div class="publication-graph">
       {% if post.graph %}
-        <p>Graph field exists: {{ post.graph }}</p>
         <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" style="max-width: 150px; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
-      {% else %}
-        <p>No graph field for this post.</p>
       {% endif %}
     </div>
 
