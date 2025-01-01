@@ -45,13 +45,13 @@ h2.publication-category-title {
 /* Archive Item Spacing */
 .archive__item {
   margin-top: 0.1em; /* Reduce top margin */
-  display: grid; /* Use grid for alignment */
-  grid-template-columns: 1fr auto; /* Two columns: details and graph */
-  align-items: center; /* Align content vertically */
-  gap: 20px; /* Spacing between columns */
+  display: flex; /* Use flexbox for better control */
+  flex-direction: row; /* Align items in a horizontal row */
+  align-items: flex-start; /* Align content to the top of the row */
+  gap: 20px; /* Spacing between text and graph */
 }
 
-.archive__item p {
+/.archive__item p {
   margin: 0.5em 0;
 }
 
@@ -64,11 +64,12 @@ h2.publication-category-title {
 /* Graph Styling */
 .publication-graph {
   flex-shrink: 0; /* Prevent graph resizing */
-  justify-self: end; /* Align graph to the right */
+  margin-left: auto; /* Push the graph to the far right */
+  text-align: right; /* Align content within the graph container */
 }
 
 .publication-graph-img {
-  max-width: 400px; /* Adjust graph size */
+  max-width: 200px; /* Adjust graph size to fit better */
   height: auto;
   border: 1px solid #ddd;
   padding: 5px;
