@@ -52,3 +52,17 @@ h2.publication-category-title {
   color: #005f99; /* Change to your desired hover color */
   text-decoration: underline; /* Add underline on hover */
 }
+
+.publication-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.publication-entry img {
+  max-width: 150px;
+  height: auto;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
+}
