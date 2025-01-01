@@ -53,14 +53,19 @@ h2.publication-category-title {
   text-decoration: underline; /* Add underline on hover */
 }
 
-.publication-entry {
+.archive__item {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  flex-direction: row;
+  align-items: center; /* Vertically aligns details and graph */
+  gap: 20px; /* Spacing between details and graph */
 }
 
-.publication-entry img {
-  max-width: 150px;
+.publication-graph {
+  flex-shrink: 0; /* Prevents graph from resizing */
+}
+
+.publication-graph-img {
+  max-width: 400px; /* Adjust as needed */
   height: auto;
   border: 1px solid #ddd;
   padding: 5px;
