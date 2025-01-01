@@ -35,12 +35,12 @@
       {% endif %}
     </div>
 
-     <!-- Right Section: Graph -->
-    <div class="publication-graph" style="flex-shrink: 0; display: flex; align-items: center;">
-      {% if post.graph %}
-        <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" class="publication-graph-img">
-      {% endif %}
+      <!-- Right Section: Graph -->
+    {% if post.graph %}
+    <div class="publication-graph">
+      <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" class="publication-graph-img">
     </div>
+    {% endif %}
 
   </article>
 </div>
