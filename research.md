@@ -4,7 +4,7 @@ permalink: /research/
 author_profile: true
 ---
 
-<!-- Link to Google Scholar -->
+<!-- Google Scholar Link -->
 {% if author.googlescholar %}
   <p>You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u></p>
 {% endif %}
