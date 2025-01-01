@@ -1,9 +1,11 @@
 ---
 layout: archive
 permalink: /research/
-title: Research
+author_profile: true
 ---
 
 <h1>Research</h1>
 
-<pre>{{ site.research | jsonify }}</pre>
+{% for post in site.research %}
+  {% include archive-single.html post=post %}
+{% endfor %}
