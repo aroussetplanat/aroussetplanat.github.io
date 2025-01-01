@@ -6,7 +6,7 @@
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork" style="display: flex; align-items: flex-start; gap: 20px;">
-    
+
     <!-- Left Section: Publication Details -->
     <div class="publication-details">
       <h2 class="archive__item-title" itemprop="headline">
@@ -16,7 +16,7 @@
           {{ title }}
         {% endif %}
       </h2>
-      
+
       {% if post.coauthors %}
         <p class="coauthors">Co-authors: {{ post.coauthors }}</p>
       {% endif %}
@@ -34,19 +34,13 @@
         </div>
       {% endif %}
     </div>
-    
-    <!-- Right Section: Graph -->
-    <div class="publication-graph">
-      {% if post.graph %}
-        <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" style="max-width: 150px; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
-        <p>Graph field exists: {{ post.graph }}</p>
-      {% else %}
-        <p>No graph field for this post.</p>
-      {% endif %}
-    </div>
 
-    <!-- Debugging JSON Output -->
-    <pre>{{ post | jsonify }}</pre>
-    
+    <!-- Right Section: Graph -->
+    {% if post.graph %}
+      <div class="publication-graph">
+        <img src="{{ post.graph | relative_url }}" alt="Graph for {{ post.title }}" style="max-width: 150px; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+      </div>
+    {% endif %}
+
   </article>
 </div>
