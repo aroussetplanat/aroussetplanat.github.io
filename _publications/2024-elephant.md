@@ -16,7 +16,6 @@ dampen local stock market volatility for all stock markets, except those associa
 with the three safe-haven currencies—USD, JPY, and CHF—and currencies pegged to
 the USD."
 date: 2024-08-03
-venue: "<strong><em>Revise and Resubmit</em></strong> <u>Journal of Finance</u>"
 latest_draft: 'AMs_Elephants_Equity_Decomp.pdf'
 coauthors: "Hélène Rey, Vania Stavrakeva, Jenny Tang"
 ---
