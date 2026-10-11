@@ -1,5 +1,5 @@
 /* Landing page — single-page academic site.
-   Layout: sticky mono top bar; hero with portrait, role and a faint term-structure curve;
+   Layout: sticky mono top bar; hero with portrait, role and links;
    research as a vertical timeline with bracketed actions; contact list; theme toggle. */
 
 :root {
@@ -111,7 +111,7 @@ a:hover { color: var(--accent); }
 .hero__inner {
   position: relative; z-index: 1;
   max-width: var(--wrap); margin: 0 auto;
-  padding: 88px 24px 132px;
+  padding: 88px 24px 72px;
   display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 56px; align-items: center;
 }
 .hero__photo {
@@ -138,14 +138,6 @@ a:hover { color: var(--accent); }
 .hero__about p { margin: 0 0 12px; }
 .hero__links { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
 
-.hero__curve {
-  position: absolute; right: max(16px, calc((100vw - var(--wrap)) / 2 + 8px)); bottom: 18px;
-  width: 340px; max-width: 40vw; height: auto; z-index: 0; pointer-events: none; opacity: .9;
-}
-.hero__axis { stroke: var(--rule); stroke-width: 1; }
-.hero__line { fill: none; stroke: var(--curve); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.hero__dots circle { fill: var(--bg); stroke: var(--curve); stroke-width: 1.5; }
-.hero__ticks text { fill: var(--faint); font-family: var(--mono); font-size: 10px; text-anchor: middle; opacity: .8; }
 
 /* ---------- bracketed actions ---------- */
 .bracket {
@@ -245,7 +237,6 @@ a:hover { color: var(--accent); }
   .topbar__inner { flex-wrap: nowrap; }
   .hero__inner { grid-template-columns: 1fr; gap: 26px; padding: 44px 16px 44px; justify-items: start; }
   .hero__photo { width: 132px; height: 132px; }
-  .hero__curve { display: none; }
   .section { padding: 28px 16px 40px; }
   .footer { padding: 20px 16px 40px; }
   .paper__title { font-size: 19px; }
