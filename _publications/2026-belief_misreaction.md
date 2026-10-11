@@ -1,4 +1,5 @@
 ---
+published: false  # hidden until there are results; set to true to show it again
 order: 1
 title: "Belief Misreaction to News and the Treasury Yield Curve"
 tagline: "How much of the excess volatility of long-term yields comes from investors misreading news? A state-space decomposition of the curve into rational news, belief distortions and risk premia, disciplined by surveys and market expectations."
