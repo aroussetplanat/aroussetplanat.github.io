@@ -1,7 +1,7 @@
 ---
 order: 1
 title: "Elephants in Equity Markets"
-tagline: "A market-clearing decomposition of stock prices: fund holdings covering 5% of market capitalisation account for 89% of the time variation in over 20,000 stock prices."
+tagline: "A market-clearing decomposition of stock price growth: fund holdings covering 5% of market capitalisation account for 89% of the time variation in over 20,000 stock prices."
 links:
   - label: "NBER WP 32756"
     url: "https://www.nber.org/papers/w32756"
