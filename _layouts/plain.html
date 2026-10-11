@@ -1,0 +1,28 @@
+---
+---
+{% include base_path %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} · {{ site.author.name }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="{{ base_path }}/images/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+  <link rel="stylesheet" href="{{ base_path }}/assets/css/landing.css?v={{ site.time | date: '%s' }}">
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="topbar__inner" aria-label="Site">
+      <a class="topbar__brand" href="{{ base_path }}/">{{ site.author.name }}</a>
+      <ul class="topbar__links"><li><a href="{{ base_path }}/">Home</a></li><li><a href="{{ base_path }}/#research">Research</a></li></ul>
+    </nav>
+  </header>
+  <main class="section plain">
+    <h1 class="hero__name">{{ page.title }}</h1>
+    <div class="hero__about">{{ content }}</div>
+  </main>
+</body>
+</html>

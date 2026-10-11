@@ -190,13 +190,29 @@ a:hover { color: var(--accent); }
 .paper__title a:hover { color: var(--accent-ink); background-size: 100% 1px; }
 .paper__with { margin: 0 0 10px; color: var(--muted); font-style: italic; font-size: 16.5px; }
 .paper__venue { margin: 0 0 10px; font-family: var(--mono); font-size: 13px; color: var(--accent-ink); }
+.paper__tagline { margin: 0 0 10px; max-width: 70ch; font-size: 16.5px; line-height: 1.55; color: var(--fg); opacity: .86; }
 .paper__links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.presented {
+  margin: 4px 0 0; max-width: 72ch; font-size: 15px; color: var(--muted);
+  padding-top: 16px; border-top: 1px dashed var(--rule);
+}
+.presented span {
+  font-family: var(--mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted); margin-right: 8px;
+}
 .paper__abstract {
   margin-top: 14px; padding: 14px 18px; max-width: 72ch;
   background: var(--bg-elev); border: 1px solid var(--rule); border-left: 2px solid var(--accent);
   border-radius: 0 6px 6px 0; font-size: 16.5px; line-height: 1.65; color: var(--fg);
 }
 .paper__abstract p { margin: 0; }
+
+/* ---------- news ---------- */
+.news { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.news li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 18px; align-items: baseline; }
+.news__date { font-family: var(--mono); font-size: 12.5px; color: var(--accent-ink); letter-spacing: 0.02em; white-space: nowrap; }
+.news__text { font-size: 16.5px; }
+.news__text em { font-style: italic; }
 
 /* ---------- contact ---------- */
 .contact { margin: 0; display: grid; gap: 10px; }
@@ -241,8 +257,12 @@ a:hover { color: var(--accent); }
   .footer { padding: 20px 16px 40px; }
   .paper__title { font-size: 19px; }
   .contact div { grid-template-columns: 1fr; gap: 2px; }
+  .news li { grid-template-columns: 1fr; gap: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
 }
+
+/* ---------- plain pages (404) ---------- */
+.plain { padding-top: 96px; padding-bottom: 120px; }

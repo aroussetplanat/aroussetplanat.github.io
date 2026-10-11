@@ -8,13 +8,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ author.name }}</title>
-  <meta name="description" content="{{ author.name }}, {{ page.role }} at {{ page.affiliation }}. Research in {{ page.interests | join: ', ' | downcase }}.">
+  {% capture desc %}{{ author.name }}, {{ page.role }} at {{ page.affiliation }}. Research in {{ page.interests | join: ', ' | downcase }}.{% endcapture %}
+  <meta name="description" content="{{ desc | strip }}">
+  <link rel="canonical" href="{{ site.url }}{{ base_path }}/">
+  <meta property="og:type" content="profile">
   <meta property="og:title" content="{{ author.name }}">
   <meta property="og:description" content="{{ page.role }} at {{ page.affiliation }}">
-  <meta property="og:image" content="{{ site.url }}{{ base_path }}/images/{{ author.avatar }}">
   <meta property="og:url" content="{{ site.url }}{{ base_path }}/">
-  <link rel="canonical" href="{{ site.url }}{{ base_path }}/">
-  <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon.png">
+  <meta property="og:image" content="{{ site.url }}{{ base_path }}/images/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{ base_path }}/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ base_path }}/images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="{{ base_path }}/images/apple-touch-icon.png">
+  <meta name="theme-color" content="#0e131c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ author.name | jsonify }},
+    "url": {{ site.url | append: base_path | append: "/" | jsonify }},
+    "image": {{ site.url | append: base_path | append: "/images/" | append: author.avatar | jsonify }},
+    "jobTitle": {{ page.role | jsonify }},
+    "affiliation": { "@type": "CollegeOrUniversity", "name": {{ page.affiliation | jsonify }} },
+    "knowsAbout": {{ page.interests | jsonify }},
+    "sameAs": [{% if author.googlescholar %}{{ author.googlescholar | jsonify }},{% endif %}{% if author.linkedin %}{{ "https://www.linkedin.com/in/" | append: author.linkedin | jsonify }},{% endif %}{{ "https://github.com/" | append: author.github | jsonify }}]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
@@ -36,6 +58,7 @@
       <a class="topbar__brand" href="#top">{{ author.name }}</a>
       <ul class="topbar__links">
         <li><a href="#top" data-section="top">About</a></li>
+        {% if site.data.news %}<li><a href="#news" data-section="news">News</a></li>{% endif %}
         <li><a href="#research" data-section="research">Research</a></li>
         <li><a href="#contact" data-section="contact">Contact</a></li>
       </ul>
@@ -70,6 +93,17 @@
       </div>
     </section>
 
+    {% if site.data.news %}
+    <section class="section" id="news" data-observe>
+      <h2 class="section__title"><span aria-hidden="true">&sect;</span> News</h2>
+      <ul class="news">
+        {% for item in site.data.news limit: 6 %}
+        <li><span class="news__date">{{ item.date }}</span><span class="news__text">{{ item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span></li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
     <section class="section" id="research" data-observe>
       <h2 class="section__title"><span aria-hidden="true">&sect;</span> Research</h2>
 
@@ -92,10 +126,14 @@
               </p>
             {% endif %}
             {% if post.venue and post.venue != "" %}<p class="paper__venue">{{ post.venue }}</p>{% endif %}
+            {% if post.tagline %}<p class="paper__tagline">{{ post.tagline }}</p>{% endif %}
+            {% if post.latest_draft or post.links or post.abstract %}
             <div class="paper__links">
               {% if post.latest_draft %}<a class="bracket" href="{{ pdf }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+              {% for l in post.links %}<a class="bracket" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{% endfor %}
               {% if post.abstract %}<button class="bracket bracket--btn" type="button" aria-expanded="false" aria-controls="abs-{{ post.slug }}">Abstract</button>{% endif %}
             </div>
+            {% endif %}
             {% if post.abstract %}
             <div class="paper__abstract" id="abs-{{ post.slug }}" hidden>
               <p>{{ post.abstract | strip_newlines | replace: "  ", " " }}</p>
@@ -106,6 +144,7 @@
         </ol>
         {% endif %}
       {% endfor %}
+      {% if page.presented_at %}<p class="presented"><span>Presented at</span> {{ page.presented_at }}.</p>{% endif %}
     </section>
 
     <section class="section" id="contact" data-observe>
@@ -166,5 +205,8 @@
       }
     })();
   </script>
+  {% if site.goatcounter and site.goatcounter != "" %}
+  <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  {% endif %}
 </body>
 </html>

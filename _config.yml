@@ -25,7 +25,7 @@ author:
   avatar           : "profile.jpg" 
   name             : "Adrien Rousset Planat"
   pronouns         : # example: "she/her"  
-  bio              : "Ph.D student in Economics"
+  bio              : "PhD student in Economics"
   location         : #"London"
   employer         : "London Business School"
   uri              : # URL
@@ -75,6 +75,10 @@ author:
   youtube          : # Username
   zhihu            : # Username
 
+# Privacy-friendly visit counts (https://www.goatcounter.com). Put your GoatCounter
+# site code here (e.g. "adrienroussetplanat") to switch them on; leave empty to disable.
+goatcounter: ""
+
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
  # books:
@@ -85,8 +89,8 @@ publication_category:
   #  title: 'Conference Papers'
   wp:
     title: 'Working Papers'
-  # work_in_progress:
-  #   title: 'Works in Progress'
+  work_in_progress:
+    title: 'Work in Progress'
  # pub:
   #  title: 'Peer-Reviewed Publications'
 
@@ -188,6 +192,8 @@ exclude:
   - package.json*
   - Rakefile
   - README
+  - README.md
+  - CONTRIBUTING.md
   - tmp
   - vendor
 keep_files:
@@ -224,11 +230,7 @@ collections:
  #   output: true
  #   permalink: /:collection/:path/
   publications:
-    output: true
-    permalink: /:collection/:path/
-  research:
-    output: true
-    permalink: /:collection/:path/
+    output: false # papers are listed on the home page; no separate pages
  # portfolio:
  #   output: true
  #   permalink: /:collection/:path/
@@ -270,15 +272,6 @@ defaults:
   - scope:
       path: ""
       type: publications
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-  #  _research
-  - scope:
-      path: ""
-      type: research
     values:
       layout: single
       author_profile: true

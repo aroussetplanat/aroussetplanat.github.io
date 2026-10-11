@@ -1,6 +1,12 @@
 ---
 order: 1
 title: "Elephants in Equity Markets"
+tagline: "A market-clearing decomposition of stock prices: fund holdings covering 5% of market capitalisation account for 89% of the time variation in over 20,000 stock prices."
+links:
+  - label: "NBER WP 32756"
+    url: "https://www.nber.org/papers/w32756"
+  - label: "CEPR DP 19284"
+    url: "https://cepr.org/publications/DP19284"
 collection: publications
 category: wp
 permalink: /publication/2024-elaphant
