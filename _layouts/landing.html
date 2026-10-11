@@ -1,0 +1,184 @@
+---
+---
+{% include base_path %}
+{% assign author = site.author %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ author.name }}</title>
+  <meta name="description" content="{{ author.name }}, {{ page.role }} at {{ page.affiliation }}. Research in {{ page.interests | join: ', ' | downcase }}.">
+  <meta property="og:title" content="{{ author.name }}">
+  <meta property="og:description" content="{{ page.role }} at {{ page.affiliation }}">
+  <meta property="og:image" content="{{ site.url }}{{ base_path }}/images/{{ author.avatar }}">
+  <meta property="og:url" content="{{ site.url }}{{ base_path }}/">
+  <link rel="canonical" href="{{ site.url }}{{ base_path }}/">
+  <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+  <link rel="stylesheet" href="{{ base_path }}/assets/css/landing.css?v={{ site.time | date: '%s' }}">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#research">Skip to research</a>
+
+  <header class="topbar">
+    <nav class="topbar__inner" aria-label="Sections">
+      <a class="topbar__brand" href="#top">{{ author.name }}</a>
+      <ul class="topbar__links">
+        <li><a href="#top" data-section="top">About</a></li>
+        <li><a href="#research" data-section="research">Research</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-moon"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-sun"><circle cx="12" cy="12" r="4.2"/><g><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+        </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top" data-observe>
+      <svg class="hero__curve" viewBox="0 0 420 220" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false">
+        <line class="hero__axis" x1="20" y1="190" x2="410" y2="190"></line>
+        <polyline class="hero__line" points="30,160 70,128 120,104 190,86 270,74 400,66"></polyline>
+        <g class="hero__dots">
+          <circle cx="30" cy="160" r="3.5"></circle>
+          <circle cx="70" cy="128" r="3.5"></circle>
+          <circle cx="120" cy="104" r="3.5"></circle>
+          <circle cx="190" cy="86" r="3.5"></circle>
+          <circle cx="270" cy="74" r="3.5"></circle>
+          <circle cx="400" cy="66" r="3.5"></circle>
+        </g>
+        <g class="hero__ticks">
+          <text x="30" y="208">3m</text><text x="70" y="208">2y</text><text x="120" y="208">5y</text>
+          <text x="190" y="208">10y</text><text x="270" y="208">20y</text><text x="400" y="208">30y</text>
+        </g>
+      </svg>
+
+      <div class="hero__inner">
+        <img class="hero__photo" src="{{ base_path }}/images/{{ author.avatar }}" alt="Portrait of {{ author.name }}" width="200" height="200">
+        <div class="hero__text">
+          <h1 class="hero__name">{{ author.name }}</h1>
+          <p class="hero__role"><span class="hero__slash" aria-hidden="true">//</span> {{ page.role }} &middot; {{ page.affiliation }}</p>
+          {% if page.interests %}
+          <ul class="hero__tags" aria-label="Research interests">
+            {% for i in page.interests %}<li>{{ i }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          <div class="hero__about">{{ content }}</div>
+          <ul class="hero__links">
+            {% if author.email %}<li><a class="bracket" href="mailto:{{ author.email }}">Email</a></li>{% endif %}
+            {% if author.github %}<li><a class="bracket" href="https://github.com/{{ author.github }}" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
+            {% if author.googlescholar %}<li><a class="bracket" href="{{ author.googlescholar }}" target="_blank" rel="noopener">Scholar</a></li>{% endif %}
+            {% if author.linkedin %}<li><a class="bracket" href="https://www.linkedin.com/in/{{ author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research" data-observe>
+      <h2 class="section__title"><span aria-hidden="true">&sect;</span> Research</h2>
+
+      {% for category in site.publication_category %}
+        {% assign category_key = category[0] %}
+        {% assign papers = site.publications | where: "category", category_key | sort: "order" %}
+        {% if papers.size > 0 %}
+        <h3 class="group__title">{{ category[1].title }}</h3>
+        <ol class="timeline">
+          {% for post in papers %}
+          {% assign pdf = base_path | append: "/files/pdf/research/" | append: post.latest_draft %}
+          <li class="paper" id="{{ post.slug }}">
+            <h4 class="paper__title">
+              {% if post.latest_draft %}<a href="{{ pdf }}" target="_blank" rel="noopener">{{ post.title }}</a>{% else %}{{ post.title }}{% endif %}
+            </h4>
+            {% if post.coauthors %}
+              {% assign names = post.coauthors | split: ", " %}
+              <p class="paper__with">with
+                {% for n in names %}{% if forloop.last and forloop.length > 1 %} and {% elsif forloop.index > 1 %}, {% endif %}{{ n }}{% endfor %}
+              </p>
+            {% endif %}
+            {% if post.venue and post.venue != "" %}<p class="paper__venue">{{ post.venue }}</p>{% endif %}
+            <div class="paper__links">
+              {% if post.latest_draft %}<a class="bracket" href="{{ pdf }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+              {% if post.abstract %}<button class="bracket bracket--btn" type="button" aria-expanded="false" aria-controls="abs-{{ post.slug }}">Abstract</button>{% endif %}
+            </div>
+            {% if post.abstract %}
+            <div class="paper__abstract" id="abs-{{ post.slug }}" hidden>
+              <p>{{ post.abstract | strip_newlines | replace: "  ", " " }}</p>
+            </div>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+      {% endfor %}
+    </section>
+
+    <section class="section" id="contact" data-observe>
+      <h2 class="section__title"><span aria-hidden="true">&sect;</span> Contact</h2>
+      <dl class="contact">
+        {% if author.email %}<div><dt>Email</dt><dd><a href="mailto:{{ author.email }}">{{ author.email }}</a></dd></div>{% endif %}
+        {% if page.address %}<div><dt>Office</dt><dd>{{ page.address }}</dd></div>{% endif %}
+        {% if author.github %}<div><dt>GitHub</dt><dd><a href="https://github.com/{{ author.github }}" target="_blank" rel="noopener">github.com/{{ author.github }}</a></dd></div>{% endif %}
+      </dl>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ author.name }} &middot; Updated {{ site.time | date: "%-d %B %Y" }}</p>
+  </footer>
+
+
+
+  <script>
+    (function () {
+      // Abstract toggles
+      document.querySelectorAll(".bracket--btn[aria-controls]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var panel = document.getElementById(btn.getAttribute("aria-controls"));
+          var open = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!open));
+          panel.hidden = open;
+        });
+      });
+
+      // Theme toggle
+      var root = document.documentElement;
+      function current() {
+        var t = root.getAttribute("data-theme");
+        if (t) return t;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.querySelector(".theme-toggle").addEventListener("click", function () {
+        var next = current() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+      });
+
+      // Active section in the top bar
+      var links = {};
+      document.querySelectorAll(".topbar__links a").forEach(function (a) { links[a.dataset.section] = a; });
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.values(links).forEach(function (a) { a.classList.remove("is-active"); });
+            if (links[e.target.id]) links[e.target.id].classList.add("is-active");
+          });
+        }, { rootMargin: "-30% 0px -60% 0px" });
+        document.querySelectorAll("[data-observe]").forEach(function (s) { io.observe(s); });
+      }
+    })();
+  </script>
+</body>
+</html>

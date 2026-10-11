@@ -1,8 +1,15 @@
 ---
 permalink: /
+layout: landing
 title: "About me"
-author_profile: true
-redirect_from: 
+role: "PhD student in Economics"
+affiliation: "London Business School"
+interests:
+  - International finance
+  - Macro-finance
+  - Asset pricing
+address: "London Business School, Regent's Park, London NW1 4SA"
+redirect_from:
   - /about/
   - /about.html
 ---
