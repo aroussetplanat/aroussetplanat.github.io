@@ -129,6 +129,8 @@
       <dl class="contact">
         {% if author.email %}<div><dt>Email</dt><dd><a href="mailto:{{ author.email }}">{{ author.email }}</a></dd></div>{% endif %}
         {% if page.address %}<div><dt>Office</dt><dd>{{ page.address }}</dd></div>{% endif %}
+        {% if author.googlescholar %}<div><dt>Scholar</dt><dd><a href="{{ author.googlescholar }}" target="_blank" rel="noopener">Google Scholar profile</a></dd></div>{% endif %}
+        {% if author.linkedin %}<div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/{{ author.linkedin }}" target="_blank" rel="noopener">linkedin.com/in/{{ author.linkedin }}</a></dd></div>{% endif %}
         {% if author.github %}<div><dt>GitHub</dt><dd><a href="https://github.com/{{ author.github }}" target="_blank" rel="noopener">github.com/{{ author.github }}</a></dd></div>{% endif %}
       </dl>
     </section>
