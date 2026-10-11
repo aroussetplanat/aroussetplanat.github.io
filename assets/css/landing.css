@@ -189,6 +189,8 @@ a:hover { color: var(--accent); }
 .paper__title a { color: var(--fg); background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .25s, color .15s; }
 .paper__title a:hover { color: var(--accent-ink); background-size: 100% 1px; }
 .paper__with { margin: 0 0 10px; color: var(--muted); font-style: italic; font-size: 16.5px; }
+.paper__with a.coauthor { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.paper__with a.coauthor:hover { color: var(--accent-ink); text-decoration-color: currentColor; }
 .paper__venue { margin: 0 0 10px; font-family: var(--mono); font-size: 13px; color: var(--accent-ink); }
 .paper__tagline { margin: 0 0 10px; max-width: 70ch; font-size: 16.5px; line-height: 1.55; color: var(--fg); opacity: .86; }
 .paper__links { display: flex; flex-wrap: wrap; gap: 6px 18px; }

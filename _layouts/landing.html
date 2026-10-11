@@ -122,7 +122,7 @@
             {% if post.coauthors %}
               {% assign names = post.coauthors | split: ", " %}
               <p class="paper__with">with
-                {% for n in names %}{% if forloop.last and forloop.length > 1 %} and {% elsif forloop.index > 1 %}, {% endif %}{{ n }}{% endfor %}
+                {% for n in names %}{% if forloop.last and forloop.length > 1 %} and {% elsif forloop.index > 1 %}, {% endif %}{% assign site_url = site.data.coauthors[n] %}{% if site_url %}<a class="coauthor" href="{{ site_url }}" target="_blank" rel="noopener">{{ n }}</a>{% else %}{{ n }}{% endif %}{% endfor %}
               </p>
             {% endif %}
             {% if post.venue and post.venue != "" %}<p class="paper__venue">{{ post.venue }}</p>{% endif %}
