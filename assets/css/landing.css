@@ -221,6 +221,11 @@ a:hover { color: var(--accent); }
 .contact div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 16px; align-items: baseline; }
 .contact dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
 .contact dd { margin: 0; overflow-wrap: anywhere; }
+.contact__list { display: flex; flex-direction: column; gap: 4px; }
+.contact__inline { display: flex; flex-wrap: wrap; align-items: baseline; }
+.contact__inline a + a::before { content: "\00b7"; color: var(--muted); padding: 0 10px; display: inline-block; }
+.contact a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.contact a:hover { text-decoration-color: currentColor; }
 
 /* ---------- footer & toggle ---------- */
 .footer {

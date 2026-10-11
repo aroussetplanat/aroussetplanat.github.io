@@ -150,11 +150,9 @@
     <section class="section" id="contact" data-observe>
       <h2 class="section__title"><span aria-hidden="true">&sect;</span> Contact</h2>
       <dl class="contact">
-        {% if author.email %}<div><dt>Email</dt><dd><a href="mailto:{{ author.email }}">{{ author.email }}</a></dd></div>{% endif %}
+        {% if author.email or author.email_personal %}<div><dt>Email</dt><dd class="contact__list">{% if author.email %}<a href="mailto:{{ author.email }}">{{ author.email }}</a>{% endif %}{% if author.email_personal %}<a href="mailto:{{ author.email_personal }}">{{ author.email_personal }}</a>{% endif %}</dd></div>{% endif %}
         {% if page.address %}<div><dt>Office</dt><dd>{{ page.address }}</dd></div>{% endif %}
-        {% if author.googlescholar %}<div><dt>Scholar</dt><dd><a href="{{ author.googlescholar }}" target="_blank" rel="noopener">Google Scholar profile</a></dd></div>{% endif %}
-        {% if author.linkedin %}<div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/{{ author.linkedin }}" target="_blank" rel="noopener">linkedin.com/in/{{ author.linkedin }}</a></dd></div>{% endif %}
-        {% if author.github %}<div><dt>GitHub</dt><dd><a href="https://github.com/{{ author.github }}" target="_blank" rel="noopener">github.com/{{ author.github }}</a></dd></div>{% endif %}
+        <div><dt>Profiles</dt><dd class="contact__inline">{% if author.googlescholar %}<a href="{{ author.googlescholar }}" target="_blank" rel="noopener">Google Scholar</a>{% endif %}{% if author.linkedin %}<a href="https://www.linkedin.com/in/{{ author.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}{% if author.github %}<a href="https://github.com/{{ author.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}</dd></div>
       </dl>
     </section>
   </main>
