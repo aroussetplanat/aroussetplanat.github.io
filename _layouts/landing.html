@@ -10,12 +10,12 @@
   <title>{{ author.name }}</title>
   {% capture desc %}{{ author.name }}, {{ page.role }} at {{ page.affiliation }}. Research in {{ page.interests | join: ', ' | downcase }}.{% endcapture %}
   <meta name="description" content="{{ desc | strip }}">
-  <link rel="canonical" href="{{ site.url }}{{ base_path }}/">
+  <link rel="canonical" href="{{ base_path }}/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="{{ author.name }}">
   <meta property="og:description" content="{{ page.role }} at {{ page.affiliation }}">
-  <meta property="og:url" content="{{ site.url }}{{ base_path }}/">
-  <meta property="og:image" content="{{ site.url }}{{ base_path }}/images/og-card.png">
+  <meta property="og:url" content="{{ base_path }}/">
+  <meta property="og:image" content="{{ base_path }}/images/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -29,8 +29,8 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": {{ author.name | jsonify }},
-    "url": {{ site.url | append: base_path | append: "/" | jsonify }},
-    "image": {{ site.url | append: base_path | append: "/images/" | append: author.avatar | jsonify }},
+    "url": {{ base_path | append: "/" | jsonify }},
+    "image": {{ base_path | append: "/images/" | append: author.avatar | jsonify }},
     "jobTitle": {{ page.role | jsonify }},
     "affiliation": { "@type": "CollegeOrUniversity", "name": {{ page.affiliation | jsonify }} },
     "knowsAbout": {{ page.interests | jsonify }},
