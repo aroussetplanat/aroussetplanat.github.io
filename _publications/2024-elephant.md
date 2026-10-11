@@ -1,4 +1,5 @@
 ---
+order: 1
 title: "Elephants in Equity Markets"
 collection: publications
 category: wp

@@ -1,4 +1,5 @@
 ---
+order: 3
 title: "Beyond Oil: The Origins of Commodity Price Fluctuations"
 collection: publications
 category: wp

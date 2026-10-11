@@ -13,8 +13,8 @@ author_profile: true
 {% for category in site.publication_category %}
   <h2 class="publication-category-title">{{ category[1].title }}</h2>
   {% assign category_key = category[0] %}
-  {% assign posts_in_category = site.publications | where: "category", category_key %}
-  {% for post in posts_in_category reversed %}
+  {% assign posts_in_category = site.publications | where: "category", category_key | sort: "order" %}
+  {% for post in posts_in_category %}
     {% include archive-single.html %}
   {% endfor %}
 {% endfor %}
