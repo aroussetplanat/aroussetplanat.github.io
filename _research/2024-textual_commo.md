@@ -1,9 +1,10 @@
 ---
-title: "The Origins of Commodity Price Fluctuations"
+title: "Beyond Oil: The Origins of Commodity Price Fluctuations"
 collection: publications
-category: work_in_progress
-abstract: "We build novel indexes of commodity price developments by simulating news-reading. Our proposed computer-based, narrative approach is flexible, unified and spans the global commodity market, including energy, industrial and precious metals, and agricultural commodities. Empirical evidence and human readings of news articles indicate that our indexes capture commodity-price supply and demand components. Index-peaks track the post-crisis collapse of commodity markets, other market-specific developments, as well as the recent COVID-19 crisis. The richness of news content allows us to decompose the supply and demand indexes into a number of key determinants that shaped commodity markets since the beginning of the 21st century, including business cycle effects, geopolitical risk, natural disasters, and climate change considerations. Results reveal that the nature of commodity price movements matters for macroeconomic outcomes, firms' decisions, and asset prices."
+category: wp
+abstract: "Commodity supply shocks are a plausible but empirically elusive source of business-cycle fluctuations. We develop a comprehensive framework to measure them, constructing daily supply and demand proxies for 20 commodities—spanning energy, metals, agriculture, and livestock—from textual analysis of over one million news articles (2001–2023). These measures allow us to separate supply from demand across the full commodity market, not just oil. A striking finding emerges: non-oil supply disruptions affect inflation and industrial production at least as strongly as oil disturbances, a result previously undocumented in the literature. Transmission varies sharply with countries’ commodity trade positions: net importers experience more persistent output contractions and stronger inflation pass-through, while net exporters are partially insulated."
 date: 2024-08-03
-coauthors: "Sarah Mouabbi, Evgenia Passari"
+latest_draft: 'ssrn-5915682.pdf'
+coauthors: "Alvin Lumbanraja, Sarah Mouabbi, Evgenia Passari"
 graph: "/images/foo-bar-identity.jpg"  # Add this line
 ---

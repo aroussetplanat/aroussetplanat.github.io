@@ -85,8 +85,8 @@ publication_category:
   #  title: 'Conference Papers'
   wp:
     title: 'Working Papers'
-  work_in_progress:
-    title: 'Works in Progress'
+  # work_in_progress:
+  #   title: 'Works in Progress'
  # pub:
   #  title: 'Peer-Reviewed Publications'
 
