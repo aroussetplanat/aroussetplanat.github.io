@@ -6,4 +6,4 @@ redirect_from:
   - /about/
   - /about.html
 ---
-I am a Ph.D student in Economics at London Business School.
+I am a 4th-year PhD student in Economics at London Business School.
