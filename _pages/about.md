@@ -14,4 +14,4 @@ redirect_from:
   - /about/
   - /about.html
 ---
-I am a 4th-year PhD student in Economics at London Business School. I work in macro-finance and asset pricing, using granular data to study how investors' portfolios, trades and beliefs move prices: fund-level holdings for equity markets, 100 million EMIR-reported FX derivatives trades for exchange rates, and over a million news articles for commodity markets. My empirical work is guided by theory and uses time-series and machine-learning methods.
+I am a 4th-year PhD student in Economics at London Business School. I work in macro-finance and asset pricing, using granular data to study how investors' portfolios, trades and beliefs move prices: fund-level holdings for equity markets, 100 million EMIR-reported FX derivatives trades for exchange rates, and over a million news articles for commodity markets. My empirical work is guided by theory and relies on time-series econometrics.
