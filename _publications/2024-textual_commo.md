@@ -3,6 +3,8 @@ order: 3
 title: "Beyond Oil: The Origins of Commodity Price Fluctuations"
 tagline: "Daily supply and demand proxies for 20 commodities from over a million news articles: non-oil supply disruptions move inflation and industrial production at least as strongly as oil."
 links:
+  - label: "CEPR DP 21244"
+    url: "https://cepr.org/publications/dp21244"
   - label: "SSRN"
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5915682"
 collection: publications
